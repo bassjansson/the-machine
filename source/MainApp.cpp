@@ -1,246 +1,95 @@
 #include "MainApp.h"
 
-//--------------------------------------------------------------
-void MainApp::setup(){
+// ========================================================================
+void MainApp::setup()
+{
+    ofBackground(0);
 
-	ofBackground(34, 34, 34);
-	
-	int bufferSize		= 512;
-	sampleRate 			= 44100;
-	phase 				= 0;
-	phaseAdder 			= 0.0f;
-	phaseAdderTarget 	= 0.0f;
-	volume				= 0.1f;
-	bNoise 				= false;
+    soundStream.printDeviceList();
 
-	lAudio.assign(bufferSize, 0.0);
-	rAudio.assign(bufferSize, 0.0);
-	
-	soundStream.printDeviceList();
+    // if you want to set the device id to be different than the default:
+    //
+    //	auto devices = soundStream.getDeviceList();
+    //	settings.setOutDevice(devices[3]);
 
-	ofSoundStreamSettings settings;
+    // you can also get devices for an specific api:
+    //
+    //	auto devices = soundStream.getDeviceList(ofSoundDevice::Api::PULSE);
+    //	settings.setOutDevice(devices[0]);
 
-	// if you want to set the device id to be different than the default:
-	//
-	//	auto devices = soundStream.getDeviceList();
-	//	settings.setOutDevice(devices[3]);
+    // or get the default device for an specific api:
+    //
+    // settings.api = ofSoundDevice::Api::PULSE;
 
-	// you can also get devices for an specific api:
-	//
-	//	auto devices = soundStream.getDeviceList(ofSoundDevice::Api::PULSE);
-	//	settings.setOutDevice(devices[0]);
+    // or by name:
+    //
+    //	auto devices = soundStream.getMatchingDevices("default");
+    //	if(!devices.empty()){
+    //		settings.setOutDevice(devices[0]);
+    //	}
 
-	// or get the default device for an specific api:
-	//
-	// settings.api = ofSoundDevice::Api::PULSE;
+    ofSoundStreamSettings settings;
 
-	// or by name:
-	//
-	//	auto devices = soundStream.getMatchingDevices("default");
-	//	if(!devices.empty()){
-	//		settings.setOutDevice(devices[0]);
-	//	}
+    settings.setInListener(this);
+    settings.setOutListener(this);
 
-#ifdef TARGET_LINUX
-	// Latest linux versions default to the HDMI output
-	// this usually fixes that. Also check the list of available
-	// devices if sound doesn't work
-	auto devices = soundStream.getMatchingDevices("default");
-	if(!devices.empty()){
-		settings.setOutDevice(devices[0]);
-	}
-#endif
+    settings.sampleRate        = SAMPLE_RATE;
+    settings.bufferSize        = BUFFER_SIZE;
+    settings.numInputChannels  = INPUT_CHANNELS;
+    settings.numOutputChannels = OUTPUT_CHANNELS;
 
-	settings.setOutListener(this);
-	settings.sampleRate = sampleRate;
-	settings.numOutputChannels = 2;
-	settings.numInputChannels = 0;
-	settings.bufferSize = bufferSize;
-	soundStream.setup(settings);
+    soundStream.setup(settings);
+} // MainApp::setup
 
-	// on OSX: if you want to use ofSoundPlayer together with ofSoundStream you need to synchronize buffersizes.
-	// use ofFmodSetBuffersize(bufferSize) to set the buffersize in fmodx prior to loading a file.
-}
+void MainApp::update()
+{ }
 
+void MainApp::draw()
+{ }
 
-//--------------------------------------------------------------
-void MainApp::update(){
+// ========================================================================
+void MainApp::keyPressed(int key)
+{ }
 
-}
+void MainApp::keyReleased(int key)
+{ }
 
-//--------------------------------------------------------------
-void MainApp::draw(){
+// ========================================================================
+void MainApp::mouseMoved(int x, int y)
+{ }
 
-	ofSetColor(225);
-	ofDrawBitmapString("AUDIO OUTPUT EXAMPLE", 32, 32);
-	ofDrawBitmapString("press 's' to unpause the audio\npress 'e' to pause the audio", 31, 92);
-	
-	ofNoFill();
-	
-	// draw the left channel:
-	ofPushStyle();
-		ofPushMatrix();
-		ofTranslate(32, 150, 0);
-			
-		ofSetColor(225);
-		ofDrawBitmapString("Left Channel", 4, 18);
-		
-		ofSetLineWidth(1);	
-		ofDrawRectangle(0, 0, 900, 200);
+void MainApp::mouseDragged(int x, int y, int button)
+{ }
 
-		ofSetColor(245, 58, 135);
-		ofSetLineWidth(3);
-					
-			ofBeginShape();
-			for (unsigned int i = 0; i < lAudio.size(); i++){
-				float x =  ofMap(i, 0, lAudio.size(), 0, 900, true);
-				ofVertex(x, 100 -lAudio[i]*180.0f);
-			}
-			ofEndShape(false);
-			
-		ofPopMatrix();
-	ofPopStyle();
+void MainApp::mousePressed(int x, int y, int button)
+{ }
 
-	// draw the right channel:
-	ofPushStyle();
-		ofPushMatrix();
-		ofTranslate(32, 350, 0);
-			
-		ofSetColor(225);
-		ofDrawBitmapString("Right Channel", 4, 18);
-		
-		ofSetLineWidth(1);	
-		ofDrawRectangle(0, 0, 900, 200);
+void MainApp::mouseReleased(int x, int y, int button)
+{ }
 
-		ofSetColor(245, 58, 135);
-		ofSetLineWidth(3);
-					
-			ofBeginShape();
-			for (unsigned int i = 0; i < rAudio.size(); i++){
-				float x =  ofMap(i, 0, rAudio.size(), 0, 900, true);
-				ofVertex(x, 100 -rAudio[i]*180.0f);
-			}
-			ofEndShape(false);
-			
-		ofPopMatrix();
-	ofPopStyle();
-	
-		
-	ofSetColor(225);
-	string reportString = "volume: ("+ofToString(volume, 2)+") modify with -/+ keys\npan: ("+ofToString(pan, 2)+") modify with mouse x\nsynthesis: ";
-	if( !bNoise ){
-		reportString += "sine wave (" + ofToString(targetFrequency, 2) + "hz) modify with mouse y";
-	}else{
-		reportString += "noise";	
-	}
-	ofDrawBitmapString(reportString, 32, 579);
+void MainApp::mouseEntered(int x, int y)
+{ }
 
-}
+void MainApp::mouseExited(int x, int y)
+{ }
 
+// ========================================================================
+void MainApp::windowResized(int w, int h)
+{ }
 
-//--------------------------------------------------------------
-void MainApp::keyPressed  (int key){
-	if (key == '-' || key == '_' ){
-		volume -= 0.05;
-		volume = MAX(volume, 0);
-	} else if (key == '+' || key == '=' ){
-		volume += 0.05;
-		volume = MIN(volume, 1);
-	}
-	
-	if( key == 's' ){
-		soundStream.start();
-	}
-	
-	if( key == 'e' ){
-		soundStream.stop();
-	}
-	
-}
+void MainApp::dragEvent(ofDragInfo dragInfo)
+{ }
 
-//--------------------------------------------------------------
-void MainApp::keyReleased  (int key){
+void MainApp::gotMessage(ofMessage msg)
+{ }
 
-}
+// ========================================================================
+void MainApp::audioIn(ofSoundBuffer &buffer)
+{ }
 
-//--------------------------------------------------------------
-void MainApp::mouseMoved(int x, int y ){
-	int width = ofGetWidth();
-	pan = (float)x / (float)width;
-	float height = (float)ofGetHeight();
-	float heightPct = ((height-y) / height);
-	targetFrequency = 2000.0f * heightPct;
-	phaseAdderTarget = (targetFrequency / (float) sampleRate) * TWO_PI;
-}
-
-//--------------------------------------------------------------
-void MainApp::mouseDragged(int x, int y, int button){
-	int width = ofGetWidth();
-	pan = (float)x / (float)width;
-}
-
-//--------------------------------------------------------------
-void MainApp::mousePressed(int x, int y, int button){
-	bNoise = true;
-}
-
-
-//--------------------------------------------------------------
-void MainApp::mouseReleased(int x, int y, int button){
-	bNoise = false;
-}
-
-//--------------------------------------------------------------
-void MainApp::mouseEntered(int x, int y){
-
-}
-
-//--------------------------------------------------------------
-void MainApp::mouseExited(int x, int y){
-
-}
-
-//--------------------------------------------------------------
-void MainApp::windowResized(int w, int h){
-
-}
-
-//--------------------------------------------------------------
-void MainApp::audioOut(ofSoundBuffer & buffer){
-	//pan = 0.5f;
-	float leftScale = 1 - pan;
-	float rightScale = pan;
-
-	// sin (n) seems to have trouble when n is very large, so we
-	// keep phase in the range of 0-TWO_PI like this:
-	while (phase > TWO_PI){
-		phase -= TWO_PI;
-	}
-
-	if ( bNoise == true){
-		// ---------------------- noise --------------
-		for (size_t i = 0; i < buffer.getNumFrames(); i++){
-			lAudio[i] = buffer[i*buffer.getNumChannels()    ] = ofRandom(0, 1) * volume * leftScale;
-			rAudio[i] = buffer[i*buffer.getNumChannels() + 1] = ofRandom(0, 1) * volume * rightScale;
-		}
-	} else {
-		phaseAdder = 0.95f * phaseAdder + 0.05f * phaseAdderTarget;
-		for (size_t i = 0; i < buffer.getNumFrames(); i++){
-			phase += phaseAdder;
-			float sample = sin(phase);
-			lAudio[i] = buffer[i*buffer.getNumChannels()    ] = sample * volume * leftScale;
-			rAudio[i] = buffer[i*buffer.getNumChannels() + 1] = sample * volume * rightScale;
-		}
-	}
-
-}
-
-//--------------------------------------------------------------
-void MainApp::gotMessage(ofMessage msg){
-
-}
-
-//--------------------------------------------------------------
-void MainApp::dragEvent(ofDragInfo dragInfo){
-
+void MainApp::audioOut(ofSoundBuffer &buffer)
+{
+    // buffer.getNumFrames() = buffer size
+    // buffer.getNumChannels() = number of channels
+    // buffer[i] = get sample i
 }

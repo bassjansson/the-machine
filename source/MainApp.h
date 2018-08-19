@@ -2,42 +2,41 @@
 
 #include "ofMain.h"
 
-class MainApp : public ofBaseApp{
+#define SAMPLE_RATE     48000
+#define BUFFER_SIZE     128
+#define INPUT_CHANNELS  2
+#define OUTPUT_CHANNELS 2
 
-	public:
+class MainApp : public ofBaseApp
+{
+public:
+    // ========================================================================
+    void setup();
+    void update();
+    void draw();
 
-		void setup();
-		void update();
-		void draw();
+    // ========================================================================
+    void keyPressed(int key);
+    void keyReleased(int key);
 
-		void keyPressed  (int key);
-		void keyReleased(int key);
-		void mouseMoved(int x, int y );
-		void mouseDragged(int x, int y, int button);
-		void mousePressed(int x, int y, int button);
-		void mouseReleased(int x, int y, int button);
-		void mouseEntered(int x, int y);
-		void mouseExited(int x, int y);
-		void windowResized(int w, int h);
-		void dragEvent(ofDragInfo dragInfo);
-		void gotMessage(ofMessage msg);
-		
-		void audioOut(ofSoundBuffer & buffer);
-		
-		
-		ofSoundStream soundStream;
+    // ========================================================================
+    void mouseMoved(int x, int y);
+    void mouseDragged(int x, int y, int button);
+    void mousePressed(int x, int y, int button);
+    void mouseReleased(int x, int y, int button);
+    void mouseEntered(int x, int y);
+    void mouseExited(int x, int y);
 
-		float 	pan;
-		int		sampleRate;
-		bool 	bNoise;
-		float 	volume;
+    // ========================================================================
+    void windowResized(int w, int h);
+    void dragEvent(ofDragInfo dragInfo);
+    void gotMessage(ofMessage msg);
 
-		vector <float> lAudio;
-		vector <float> rAudio;
-		
-		//------------------- for the simple sine wave synthesis
-		float 	targetFrequency;
-		float 	phase;
-		float 	phaseAdder;
-		float 	phaseAdderTarget;
+    // ========================================================================
+    void audioIn(ofSoundBuffer &buffer);
+    void audioOut(ofSoundBuffer &buffer);
+
+private:
+    // ========================================================================
+    ofSoundStream soundStream;
 };

@@ -2,7 +2,7 @@
 
 #include "ofMain.h"
 
-class ofApp : public ofBaseApp{
+class MainApp : public ofBaseApp{
 
 	public:
 

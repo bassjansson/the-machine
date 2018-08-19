@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E498E9E6212995950098E4F4 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E498E9E4212995950098E4F4 /* main.cpp */; };
-		E498E9E7212995950098E4F4 /* App.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E498E9E5212995950098E4F4 /* App.cpp */; };
+		E498E9E7212995950098E4F4 /* MainApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E498E9E5212995950098E4F4 /* MainApp.cpp */; };
 		E498E9F0212995E20098E4F4 /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E498E9EC212995CC0098E4F4 /* openFrameworksDebug.a */; };
 /* End PBXBuildFile section */
 
@@ -43,10 +43,10 @@
 
 /* Begin PBXFileReference section */
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../of/libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
-		E498E9E3212995950098E4F4 /* App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = App.h; sourceTree = "<group>"; };
+		E498E9E3212995950098E4F4 /* MainApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainApp.h; sourceTree = "<group>"; };
 		E498E9E4212995950098E4F4 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		E498E9E5212995950098E4F4 /* App.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = App.cpp; sourceTree = "<group>"; };
-		E498E9F2212996770098E4F4 /* audioOutputExampleDebug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = audioOutputExampleDebug.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E498E9E5212995950098E4F4 /* MainApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainApp.cpp; sourceTree = "<group>"; };
+		E498E9F2212996770098E4F4 /* TheMachine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = TheMachine.app; path = "/Users/bassjansson/Documents/Projects/The Machine/Code/the-machine/build/osx/bin/TheMachine.app"; sourceTree = "<absolute>"; };
 		E4B6FCAD0C3E899E008CF71C /* Project.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Project.plist; sourceTree = "<group>"; };
 		E4EB691F138AFCF100A09F29 /* CoreOF.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = CoreOF.xcconfig; path = ../../../of/libs/openFrameworksCompiled/project/osx/CoreOF.xcconfig; sourceTree = SOURCE_ROOT; };
 		E4EB6923138AFD0F00A09F29 /* Project.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Project.xcconfig; sourceTree = "<group>"; };
@@ -68,8 +68,8 @@
 			isa = PBXGroup;
 			children = (
 				E498E9E4212995950098E4F4 /* main.cpp */,
-				E498E9E5212995950098E4F4 /* App.cpp */,
-				E498E9E3212995950098E4F4 /* App.h */,
+				E498E9E5212995950098E4F4 /* MainApp.cpp */,
+				E498E9E3212995950098E4F4 /* MainApp.h */,
 			);
 			name = source;
 			path = ../../source;
@@ -90,7 +90,6 @@
 				E4EB6923138AFD0F00A09F29 /* Project.xcconfig */,
 				E498E9E2212995950098E4F4 /* source */,
 				E4EEC9E9138DF44700A80321 /* openFrameworks */,
-				E498E9F2212996770098E4F4 /* audioOutputExampleDebug.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -106,9 +105,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E4B69B5A0A3A1756003C02F2 /* audioOutputExample */ = {
+		E4B69B5A0A3A1756003C02F2 /* TheMachine */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E4B69B5F0A3A1757003C02F2 /* Build configuration list for PBXNativeTarget "audioOutputExample" */;
+			buildConfigurationList = E4B69B5F0A3A1757003C02F2 /* Build configuration list for PBXNativeTarget "TheMachine" */;
 			buildPhases = (
 				E4B69B580A3A1756003C02F2 /* Sources */,
 				E4B69B590A3A1756003C02F2 /* Frameworks */,
@@ -121,9 +120,9 @@
 			dependencies = (
 				E498E9EE212995DC0098E4F4 /* PBXTargetDependency */,
 			);
-			name = audioOutputExample;
+			name = TheMachine;
 			productName = myOFApp;
-			productReference = E498E9F2212996770098E4F4 /* audioOutputExampleDebug.app */;
+			productReference = E498E9F2212996770098E4F4 /* TheMachine.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -155,7 +154,7 @@
 			);
 			projectRoot = "";
 			targets = (
-				E4B69B5A0A3A1756003C02F2 /* audioOutputExample */,
+				E4B69B5A0A3A1756003C02F2 /* TheMachine */,
 			);
 		};
 /* End PBXProject section */
@@ -205,7 +204,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E498E9E6212995950098E4F4 /* main.cpp in Sources */,
-				E498E9E7212995950098E4F4 /* App.cpp in Sources */,
+				E498E9E7212995950098E4F4 /* MainApp.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,7 +405,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E4B69B5F0A3A1757003C02F2 /* Build configuration list for PBXNativeTarget "audioOutputExample" */ = {
+		E4B69B5F0A3A1757003C02F2 /* Build configuration list for PBXNativeTarget "TheMachine" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E4B69B600A3A1757003C02F2 /* Debug */,

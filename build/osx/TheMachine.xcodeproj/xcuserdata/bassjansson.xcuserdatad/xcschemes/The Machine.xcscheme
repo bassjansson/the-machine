@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E4B69B5A0A3A1756003C02F2"
-               BuildableName = "audioOutputExample.app"
-               BlueprintName = "audioOutputExample"
+               BuildableName = "TheMachine.app"
+               BlueprintName = "TheMachine"
                ReferencedContainer = "container:TheMachine.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -34,8 +34,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E4B69B5A0A3A1756003C02F2"
-            BuildableName = "audioOutputExample.app"
-            BlueprintName = "audioOutputExample"
+            BuildableName = "TheMachine.app"
+            BlueprintName = "TheMachine"
             ReferencedContainer = "container:TheMachine.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -58,8 +58,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E4B69B5A0A3A1756003C02F2"
-            BuildableName = "audioOutputExample.app"
-            BlueprintName = "audioOutputExample"
+            BuildableName = "TheMachine.app"
+            BlueprintName = "TheMachine"
             ReferencedContainer = "container:TheMachine.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -77,8 +77,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E4B69B5A0A3A1756003C02F2"
-            BuildableName = "audioOutputExample.app"
-            BlueprintName = "audioOutputExample"
+            BuildableName = "TheMachine.app"
+            BlueprintName = "TheMachine"
             ReferencedContainer = "container:TheMachine.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

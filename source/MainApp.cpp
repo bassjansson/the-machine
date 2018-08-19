@@ -1,7 +1,7 @@
-#include "App.h"
+#include "MainApp.h"
 
 //--------------------------------------------------------------
-void ofApp::setup(){
+void MainApp::setup(){
 
 	ofBackground(34, 34, 34);
 	
@@ -64,12 +64,12 @@ void ofApp::setup(){
 
 
 //--------------------------------------------------------------
-void ofApp::update(){
+void MainApp::update(){
 
 }
 
 //--------------------------------------------------------------
-void ofApp::draw(){
+void MainApp::draw(){
 
 	ofSetColor(225);
 	ofDrawBitmapString("AUDIO OUTPUT EXAMPLE", 32, 32);
@@ -139,7 +139,7 @@ void ofApp::draw(){
 
 
 //--------------------------------------------------------------
-void ofApp::keyPressed  (int key){
+void MainApp::keyPressed  (int key){
 	if (key == '-' || key == '_' ){
 		volume -= 0.05;
 		volume = MAX(volume, 0);
@@ -159,12 +159,12 @@ void ofApp::keyPressed  (int key){
 }
 
 //--------------------------------------------------------------
-void ofApp::keyReleased  (int key){
+void MainApp::keyReleased  (int key){
 
 }
 
 //--------------------------------------------------------------
-void ofApp::mouseMoved(int x, int y ){
+void MainApp::mouseMoved(int x, int y ){
 	int width = ofGetWidth();
 	pan = (float)x / (float)width;
 	float height = (float)ofGetHeight();
@@ -174,39 +174,39 @@ void ofApp::mouseMoved(int x, int y ){
 }
 
 //--------------------------------------------------------------
-void ofApp::mouseDragged(int x, int y, int button){
+void MainApp::mouseDragged(int x, int y, int button){
 	int width = ofGetWidth();
 	pan = (float)x / (float)width;
 }
 
 //--------------------------------------------------------------
-void ofApp::mousePressed(int x, int y, int button){
+void MainApp::mousePressed(int x, int y, int button){
 	bNoise = true;
 }
 
 
 //--------------------------------------------------------------
-void ofApp::mouseReleased(int x, int y, int button){
+void MainApp::mouseReleased(int x, int y, int button){
 	bNoise = false;
 }
 
 //--------------------------------------------------------------
-void ofApp::mouseEntered(int x, int y){
+void MainApp::mouseEntered(int x, int y){
 
 }
 
 //--------------------------------------------------------------
-void ofApp::mouseExited(int x, int y){
+void MainApp::mouseExited(int x, int y){
 
 }
 
 //--------------------------------------------------------------
-void ofApp::windowResized(int w, int h){
+void MainApp::windowResized(int w, int h){
 
 }
 
 //--------------------------------------------------------------
-void ofApp::audioOut(ofSoundBuffer & buffer){
+void MainApp::audioOut(ofSoundBuffer & buffer){
 	//pan = 0.5f;
 	float leftScale = 1 - pan;
 	float rightScale = pan;
@@ -236,11 +236,11 @@ void ofApp::audioOut(ofSoundBuffer & buffer){
 }
 
 //--------------------------------------------------------------
-void ofApp::gotMessage(ofMessage msg){
+void MainApp::gotMessage(ofMessage msg){
 
 }
 
 //--------------------------------------------------------------
-void ofApp::dragEvent(ofDragInfo dragInfo){ 
+void MainApp::dragEvent(ofDragInfo dragInfo){
 
 }

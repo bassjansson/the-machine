@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E498E9E6212995950098E4F4 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E498E9E4212995950098E4F4 /* main.cpp */; };
-		E498E9E7212995950098E4F4 /* MainApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E498E9E5212995950098E4F4 /* MainApp.cpp */; };
 		E498E9F0212995E20098E4F4 /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E498E9EC212995CC0098E4F4 /* openFrameworksDebug.a */; };
+		E498E9FC21299B780098E4F4 /* MainApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E498E9F921299B780098E4F4 /* MainApp.cpp */; };
+		E498E9FD21299B780098E4F4 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E498E9FB21299B780098E4F4 /* main.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,12 +43,11 @@
 
 /* Begin PBXFileReference section */
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../of/libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
-		E498E9E3212995950098E4F4 /* MainApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainApp.h; sourceTree = "<group>"; };
-		E498E9E4212995950098E4F4 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		E498E9E5212995950098E4F4 /* MainApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainApp.cpp; sourceTree = "<group>"; };
-		E498E9F2212996770098E4F4 /* TheMachine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = TheMachine.app; path = "/Users/bassjansson/Documents/Projects/The Machine/Code/the-machine/build/osx/bin/TheMachine.app"; sourceTree = "<absolute>"; };
-		E4B6FCAD0C3E899E008CF71C /* Project.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Project.plist; sourceTree = "<group>"; };
-		E4EB691F138AFCF100A09F29 /* CoreOF.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = CoreOF.xcconfig; path = ../../../of/libs/openFrameworksCompiled/project/osx/CoreOF.xcconfig; sourceTree = SOURCE_ROOT; };
+		E498E9F721299B160098E4F4 /* TheMachineDebug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheMachineDebug.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E498E9F921299B780098E4F4 /* MainApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainApp.cpp; sourceTree = "<group>"; };
+		E498E9FA21299B780098E4F4 /* MainApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainApp.h; sourceTree = "<group>"; };
+		E498E9FB21299B780098E4F4 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		E4B6FCAD0C3E899E008CF71C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E4EB6923138AFD0F00A09F29 /* Project.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Project.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -64,17 +63,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E498E9E2212995950098E4F4 /* source */ = {
-			isa = PBXGroup;
-			children = (
-				E498E9E4212995950098E4F4 /* main.cpp */,
-				E498E9E5212995950098E4F4 /* MainApp.cpp */,
-				E498E9E3212995950098E4F4 /* MainApp.h */,
-			);
-			name = source;
-			path = ../../source;
-			sourceTree = "<group>";
-		};
 		E498E9E8212995CC0098E4F4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -83,20 +71,31 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		E498E9F821299B780098E4F4 /* source */ = {
+			isa = PBXGroup;
+			children = (
+				E498E9F921299B780098E4F4 /* MainApp.cpp */,
+				E498E9FA21299B780098E4F4 /* MainApp.h */,
+				E498E9FB21299B780098E4F4 /* main.cpp */,
+			);
+			name = source;
+			path = ../../source;
+			sourceTree = "<group>";
+		};
 		E4B69B4A0A3A1720003C02F2 = {
 			isa = PBXGroup;
 			children = (
-				E4B6FCAD0C3E899E008CF71C /* Project.plist */,
+				E498E9F821299B780098E4F4 /* source */,
+				E4B6FCAD0C3E899E008CF71C /* Info.plist */,
 				E4EB6923138AFD0F00A09F29 /* Project.xcconfig */,
-				E498E9E2212995950098E4F4 /* source */,
 				E4EEC9E9138DF44700A80321 /* openFrameworks */,
+				E498E9F721299B160098E4F4 /* TheMachineDebug.app */,
 			);
 			sourceTree = "<group>";
 		};
 		E4EEC9E9138DF44700A80321 /* openFrameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E4EB691F138AFCF100A09F29 /* CoreOF.xcconfig */,
 				E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */,
 			);
 			name = openFrameworks;
@@ -122,7 +121,7 @@
 			);
 			name = TheMachine;
 			productName = myOFApp;
-			productReference = E498E9F2212996770098E4F4 /* TheMachine.app */;
+			productReference = E498E9F721299B160098E4F4 /* TheMachineDebug.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -203,8 +202,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E498E9E6212995950098E4F4 /* main.cpp in Sources */,
-				E498E9E7212995950098E4F4 /* MainApp.cpp in Sources */,
+				E498E9FD21299B780098E4F4 /* main.cpp in Sources */,
+				E498E9FC21299B780098E4F4 /* MainApp.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,7 +268,7 @@
 				);
 				ICON = "$(ICON_NAME_RELEASE)";
 				ICON_FILE = "$(ICON_FILE_PATH)$(ICON)";
-				INFOPLIST_FILE = "$(SRCROOT)/Project.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				INSTALL_PATH = /Applications;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -360,7 +359,7 @@
 				);
 				ICON = "$(ICON_NAME_DEBUG)";
 				ICON_FILE = "$(ICON_FILE_PATH)$(ICON)";
-				INFOPLIST_FILE = "$(SRCROOT)/Project.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				INSTALL_PATH = /Applications;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)Debug";
@@ -383,7 +382,7 @@
 				);
 				ICON = "$(ICON_NAME_RELEASE)";
 				ICON_FILE = "$(ICON_FILE_PATH)$(ICON)";
-				INFOPLIST_FILE = "$(SRCROOT)/Project.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				INSTALL_PATH = /Applications;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
